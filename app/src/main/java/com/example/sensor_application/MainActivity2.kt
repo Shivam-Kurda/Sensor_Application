@@ -20,11 +20,7 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val db=database.getinst(applicationContext)
         val rotdao=db.getRotDao()
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
+
 
         var tim_series:List<String>?=null;
 
@@ -33,7 +29,7 @@ class MainActivity2 : AppCompatActivity() {
         lineGraphView = findViewById(R.id.idGraphView)
         GlobalScope.launch {
             tim_series=rotdao.gettime()
-            Log.d("time_series", tim_series!![0].toString())
+
             if(intent.getStringExtra("button")=="x"){
                 plot_series=rotdao.getxdata()
 
@@ -47,15 +43,20 @@ class MainActivity2 : AppCompatActivity() {
             }
 
 
-//            Try alternative method to get datapoints
 
 
-            val dataPoints = tim_series!!.mapIndexed { index, time ->
-                    DataPoint(time.toDouble(), plot_series!![index].toDouble())
-            }.toTypedArray()
+            var dtpointarr= arrayOf<DataPoint>()
+
+            for (i in 0..<tim_series!!.size){
+                dtpointarr+=DataPoint(tim_series!![i].toDouble(),plot_series!![i].toDouble())
+            }
+
+//            val dataPoints = tim_series!!.mapIndexed { index, time ->
+//                    DataPoint(time.toDouble(), plot_series!![index].toDouble())
+//            }.toTypedArray()
 
 
-            val series = LineGraphSeries(dataPoints)
+            val series = LineGraphSeries(dtpointarr)
 
 
             lineGraphView.addSeries(series)

@@ -59,11 +59,7 @@ class MainActivity : ComponentActivity(),SensorEventListener {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
 
-
-    }
 
     override fun onSensorChanged(p0: SensorEvent?) {
         val x_new= p0?.values?.get(0)!!
@@ -75,9 +71,7 @@ class MainActivity : ComponentActivity(),SensorEventListener {
         }
 
         Log.d("sensor","Postion changes")
-//        viewModel.x=x_new
-//        viewModel.y=y_new
-//        viewModel.z=z_new
+
 
 
     }
@@ -142,10 +136,3 @@ fun Greeting(name: String,viewModel:Main_View) {
 
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun DefaultPreview() {
-//    Sensor_ApplicationTheme {
-//        Greeting("Android")
-//    }
-//}

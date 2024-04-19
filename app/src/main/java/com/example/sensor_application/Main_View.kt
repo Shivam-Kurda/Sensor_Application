@@ -16,9 +16,7 @@ class Main_View : ViewModel() {
      val y_mut = MutableLiveData<Float>(0f)
      val z_mut = MutableLiveData<Float>(0f)
 
-//    var x: LiveData<Float> = x_mut
-//    var y: LiveData<Float> = y_mut
-//    var z: LiveData<Float> = z_mut
+
     private var db: database?=null
     fun update_coord(x_new: Float,y_new:Float,z_new:Float,cont:Context){
         x_mut.value=x_new
