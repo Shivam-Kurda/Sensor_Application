@@ -51,9 +51,7 @@ class MainActivity2 : AppCompatActivity() {
                 dtpointarr+=DataPoint(tim_series!![i].toDouble(),plot_series!![i].toDouble())
             }
 
-//            val dataPoints = tim_series!!.mapIndexed { index, time ->
-//                    DataPoint(time.toDouble(), plot_series!![index].toDouble())
-//            }.toTypedArray()
+
 
 
             val series = LineGraphSeries(dtpointarr)
