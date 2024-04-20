@@ -127,7 +127,7 @@ fun Greeting(name: String,viewModel:Main_View) {
                 rotdao.deletedb()
             }
         }) {
-            Text(text = "Delete Data")
+            Text(text = "Delete Past Data")
         }
 
     }
